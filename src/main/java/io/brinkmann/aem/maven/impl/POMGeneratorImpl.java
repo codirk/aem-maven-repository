@@ -131,7 +131,7 @@ public class POMGeneratorImpl implements POMGenerator {
 
         for (Bundle bundle : bundleContext.getBundles()) {
             Enumeration pomResourcesInBundle = bundle.findEntries("META-INF", "pom.properties", true);
-            boolean bundleExportsPackages = bundle.getHeaders().get("Export-Package") != null;
+            boolean bundleExportsPackages = true;// bundle.getHeaders().get("Export-Package") != null;
             boolean bundleIsFragment = bundle.getHeaders().get("Fragment-Host") != null;
             if (ignoreBundleFromExport(bundle.getSymbolicName())) {
                 LOGGER.trace("Ignore OSGi Bundle [" + bundle.getSymbolicName() + "] from export.");
